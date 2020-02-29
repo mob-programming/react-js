@@ -2,8 +2,9 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
+it('should render the header', () => {
+  const { getByText } = render(<App />); // See testing-library API
+  const headerElement = getByText(/Mob React App/i);
+  expect(headerElement).toBeInTheDocument(); // See Jest API
 });
+
