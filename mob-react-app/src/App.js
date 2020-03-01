@@ -18,6 +18,11 @@ function App() {
         <button aria-labelledby="counter-button-label" onClick={() => setClickCount(clickCount + 1)}>Click to Count
         </button>
       </div>
+      <div className="counter-reset-button-container">
+        <span className="hidden-label" id="counter-reset-button-label">counter reset button</span>
+        <button aria-labelledby="counter-reset-button-label" onClick={() => setClickCount(0)}>Click to Reset
+        </button>
+      </div>
     </div>
   );
 }
