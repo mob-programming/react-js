@@ -18,21 +18,14 @@ function App() {
         Mob React App
       </header>
       <div className="button-container">
-        <span className="hidden-label"
-              id="counter-button-label">counter button</span>
-        <button className="counter"
-                aria-labelledby="counter-button-label"
-                onClick={incrementTally}>Click to Count
+        <button className="counter" onClick={incrementTally}>
+          Click to Count
         </button>
-        <span className="hidden-label"
-              id="counter-reset-button-label">counter reset button</span>
-        <button className="reset"
-                aria-labelledby="counter-reset-button-label"
-                onClick={resetTally}>Click to Reset
+        <button className="reset" onClick={resetTally}>
+          Click to Reset
         </button>
       </div>
-      <span className="tally"
-            aria-label="counter tally">{clickCount}</span>
+      <span className="tally" aria-label="counter tally">{clickCount}</span>
     </div>
   );
 }
