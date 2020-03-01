@@ -40,19 +40,19 @@ describe('behaviors of', () => {
 
   describe('the counter', () => {
 
+    function validateTallyOf(expected, finder) {
+      return finder(LABEL__COUNTER_TALLY).then(tally => {
+        expect(tally).toHaveTextContent(expected.toString());
+      });
+    }
+
     it('should update the tally when the counter button is clicked', async () => {
       const { getByLabelText, findByLabelText } = render(<App />);
       const button = getByLabelText(LABEL__COUNTER_BUTTON);
 
-      function validateTallyOf(expected) {
-        return findByLabelText(LABEL__COUNTER_TALLY).then(tally => {
-          expect(tally).toHaveTextContent(expected.toString());
-        });
-      }
-
       for (const expectedTally of [1, 2, 3]) {
         fireEvent.click(button);
-        await validateTallyOf(expectedTally);
+        await validateTallyOf(expectedTally, findByLabelText);
       }
     });
 
@@ -68,9 +68,7 @@ describe('behaviors of', () => {
       fireEvent.click(resetButton);
 
       // Then the tally should be 0
-      findByLabelText(LABEL__COUNTER_TALLY).then(tally => {
-        expect(tally).toHaveTextContent('0');
-      });
+      validateTallyOf(0, findByLabelText);
     });
   });
 });
