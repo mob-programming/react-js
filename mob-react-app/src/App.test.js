@@ -3,6 +3,12 @@ import { fireEvent, render } from '@testing-library/react';
 import App from './App';
 
 const LABEL__COUNTER_TALLY = 'counter tally';
+const TEXT__BUTTON_COUNTER = 'Click to Count';
+const TEXT__BUTTON_RESET = 'Click to Reset';
+
+function findFirstWithTextContent(list, textContent) {
+  return list.find(el => el.textContent === textContent);
+}
 
 describe('rendering', () => {
 
@@ -14,13 +20,13 @@ describe('rendering', () => {
 
   it('should render the counter button', () => {
     const { getAllByRole } = render(<App />);
-    const button = getAllByRole('button').find(el => el.textContent = 'Click to Count');
+    const button = findFirstWithTextContent(getAllByRole('button'), TEXT__BUTTON_COUNTER);
     expect(button).toBeInTheDocument();
   });
 
   it('should render the counter reset button', () => {
     const { getAllByRole } = render(<App />);
-    const button = getAllByRole('button').find(el => el.textContent = 'Click to Reset');
+    const button = findFirstWithTextContent(getAllByRole('button'), TEXT__BUTTON_RESET);
     expect(button).toBeInTheDocument();
   });
 
@@ -44,7 +50,7 @@ describe('behaviors of', () => {
 
     it('should update the tally when the counter button is clicked', async () => {
       const { getAllByRole, findByLabelText } = render(<App />);
-      const button = getAllByRole('button').find(el => el.textContent = 'Click to Count');
+      const button = findFirstWithTextContent(getAllByRole('button'), TEXT__BUTTON_COUNTER);
 
       for (const expectedTally of [1, 2, 3]) {
         fireEvent.click(button);
@@ -52,16 +58,16 @@ describe('behaviors of', () => {
       }
     });
 
-    it('should reset the tally when the reset button is clicked', () => {
+    it('should reset the tally when the reset button is clicked', async () => {
       const { getAllByRole, findByLabelText } = render(<App />);
       const buttons = getAllByRole('button');
 
       // Given a tally of 3
-      const counterButton = buttons.find(el => el.textContent === 'Click to Count');
+      const counterButton = findFirstWithTextContent(buttons, TEXT__BUTTON_COUNTER);
       [...Array(3)].forEach(() => fireEvent.click(counterButton));
 
       // When the reset button is clicked
-      const resetButton = buttons.find(el => el.textContent === 'Click to Reset');
+      const resetButton = findFirstWithTextContent(buttons, TEXT__BUTTON_RESET);
       fireEvent.click(resetButton);
 
       // Then the tally should be 0
