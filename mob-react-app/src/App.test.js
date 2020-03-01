@@ -40,20 +40,27 @@ describe('behaviors of', () => {
 
   describe('the counter', () => {
 
-    it('should update the tally when the counter button is clicked', () => {
+    it('should update the tally when the counter button is clicked', async () => {
       const { getByLabelText, findByLabelText } = render(<App />);
       const button = getByLabelText(LABEL__COUNTER_BUTTON);
+
+      function validateTallyOf(expected) {
+        return findByLabelText(LABEL__COUNTER_TALLY).then(tally => {
+          expect(tally).toHaveTextContent(expected.toString());
+        });
+      }
+
       // Click, the first
       fireEvent.click(button);
-      findByLabelText(LABEL__COUNTER_TALLY).then(tally => {
-        expect(tally).toHaveTextContent('1');
-      }).then(() => {
-        // Click, the second
-        fireEvent.click(button);
-        findByLabelText(LABEL__COUNTER_TALLY).then(tally => {
-          expect(tally).toHaveTextContent('2');
-        });
-      });
+      await validateTallyOf(1);
+
+      // Click, the second
+      fireEvent.click(button);
+      await validateTallyOf(2);
+
+      // Click, the third
+      fireEvent.click(button);
+      validateTallyOf(3);
     });
 
     it('should reset the tally when the reset button is clicked', () => {
