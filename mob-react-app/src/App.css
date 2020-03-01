@@ -17,30 +17,25 @@
   display: none;
 }
 
-.counter-tally-container,
-.counter-button-container,
-.counter-reset-button-container {
-  padding: 10px;
-}
-
 .tally {
   font-size: xx-large;
 }
 
-.counter-button,
-.counter-reset-button {
-  padding: 10px;
+button {
+  padding: 1em;
+  margin: 1em;
   font-size: large;
+  font-weight: bold;
   border-width: thick;
   border-radius: 15px;
 }
 
-.counter-button {
+button.counter {
   background-color: blue;
   color: lightgray;
 }
 
-.counter-reset-button {
+button.reset {
   background-color: rebeccapurple;
   color: lightgray;
 }

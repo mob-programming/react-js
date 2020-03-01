@@ -17,29 +17,22 @@ function App() {
       <header className="App-header">
         Mob React App
       </header>
-      <div className="counter-tally-container">
-        <span className="hidden-label"
-              id="counter-tally-label">counter tally</span>
-        <span className="tally"
-              aria-labelledby="counter-tally-label">{clickCount}</span>
-      </div>
-      <div className="counter-button-container">
+      <div className="button-container">
         <span className="hidden-label"
               id="counter-button-label">counter button</span>
-        <button className="counter-button"
+        <button className="counter"
                 aria-labelledby="counter-button-label"
-                onClick={incrementTally}>Click to
-          Count
+                onClick={incrementTally}>Click to Count
         </button>
-      </div>
-      <div className="counter-reset-button-container">
-        <span className="hidden-label" id="counter-reset-button-label">counter reset button</span>
-        <button className="counter-reset-button"
+        <span className="hidden-label"
+              id="counter-reset-button-label">counter reset button</span>
+        <button className="reset"
                 aria-labelledby="counter-reset-button-label"
-                onClick={resetTally}>Click
-          to Reset
+                onClick={resetTally}>Click to Reset
         </button>
       </div>
+      <span className="tally"
+            aria-label="counter tally">{clickCount}</span>
     </div>
   );
 }
