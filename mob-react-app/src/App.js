@@ -23,12 +23,14 @@ function App() {
       </div>
       <div className="counter-button-container">
         <span className="hidden-label" id="counter-button-label">counter button</span>
-        <button aria-labelledby="counter-button-label" onClick={incrementTally}>Click to Count
+        <button className="counter-button" aria-labelledby="counter-button-label" onClick={incrementTally}>Click to
+          Count
         </button>
       </div>
       <div className="counter-reset-button-container">
         <span className="hidden-label" id="counter-reset-button-label">counter reset button</span>
-        <button aria-labelledby="counter-reset-button-label" onClick={resetTally}>Click to Reset
+        <button className="counter-reset-button" aria-labelledby="counter-reset-button-label" onClick={resetTally}>Click
+          to Reset
         </button>
       </div>
     </div>

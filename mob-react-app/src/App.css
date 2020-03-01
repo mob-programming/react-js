@@ -16,3 +16,31 @@
 .hidden-label {
   display: none;
 }
+
+.counter-tally-container,
+.counter-button-container,
+.counter-reset-button-container {
+  padding: 10px;
+}
+
+.tally {
+  font-size: xx-large;
+}
+
+.counter-button,
+.counter-reset-button {
+  padding: 10px;
+  font-size: large;
+  border-width: thick;
+  border-radius: 15px;
+}
+
+.counter-button {
+  background-color: blue;
+  color: lightgray;
+}
+
+.counter-reset-button {
+  background-color: rebeccapurple;
+  color: lightgray;
+}
