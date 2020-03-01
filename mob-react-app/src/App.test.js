@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { fireEvent, render } from '@testing-library/react';
 import App from './App';
 
 describe('rendering', () => {
@@ -22,5 +22,20 @@ describe('rendering', () => {
     const tally = getByLabelText('counter tally');
     expect(tally).toBeInTheDocument();
     expect(tally).toHaveTextContent('0');
+  });
+});
+
+describe('behaviors of', () => {
+
+  describe('the counter', () => {
+
+    it('should update the tally when the button is clicked', () => {
+      const { getByLabelText, findByLabelText } = render(<App />);
+      const button = getByLabelText('counter button');
+      fireEvent.click(button);
+      findByLabelText('counter tally').then(tally => {
+        expect(tally).toHaveTextContent('1');
+      });
+    });
   });
 });
