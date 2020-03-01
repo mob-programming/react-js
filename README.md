@@ -9,7 +9,12 @@ If that's too easy, add a reset button.
 - When the reset button is clicked, the counter tally resets to zero
 
 ## Methodology
-Use TDD with Jest and React-testing-library. 
+Use TDD with Jest and React-testing-library.
+
+### Starting Point
+- A React component is prepared
+- A failing test is prepared, and a hint in the component is provided
+- Some CSS is prepared, but can be changed to suit the mob's desires
 
 ### Resources
 
