@@ -4,6 +4,14 @@ import './App.css';
 function App() {
   const [clickCount, setClickCount] = useState(0);
 
+  function incrementTally() {
+    setClickCount(clickCount + 1);
+  }
+
+  function resetTally() {
+    setClickCount(0);
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -15,12 +23,12 @@ function App() {
       </div>
       <div className="counter-button-container">
         <span className="hidden-label" id="counter-button-label">counter button</span>
-        <button aria-labelledby="counter-button-label" onClick={() => setClickCount(clickCount + 1)}>Click to Count
+        <button aria-labelledby="counter-button-label" onClick={incrementTally}>Click to Count
         </button>
       </div>
       <div className="counter-reset-button-container">
         <span className="hidden-label" id="counter-reset-button-label">counter reset button</span>
-        <button aria-labelledby="counter-reset-button-label" onClick={() => setClickCount(0)}>Click to Reset
+        <button aria-labelledby="counter-reset-button-label" onClick={resetTally}>Click to Reset
         </button>
       </div>
     </div>
