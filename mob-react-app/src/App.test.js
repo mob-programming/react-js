@@ -50,17 +50,10 @@ describe('behaviors of', () => {
         });
       }
 
-      // Click, the first
-      fireEvent.click(button);
-      await validateTallyOf(1);
-
-      // Click, the second
-      fireEvent.click(button);
-      await validateTallyOf(2);
-
-      // Click, the third
-      fireEvent.click(button);
-      validateTallyOf(3);
+      for (const expectedTally of [1, 2, 3]) {
+        fireEvent.click(button);
+        await validateTallyOf(expectedTally);
+      }
     });
 
     it('should reset the tally when the reset button is clicked', () => {
