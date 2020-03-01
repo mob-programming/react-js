@@ -9,7 +9,7 @@ test('renders title', () => {
 });
 
 test('renders counter button', () => {
-  const {getByLabelText} = render(<App />)
-  const counterButton = getByLabelText('counter button')
+  const { getByLabelText } = render(<App />);
+  const counterButton = getByLabelText('counter button');
   expect(counterButton).toBeInTheDocument();
-})
+});
