@@ -14,3 +14,10 @@ test('renders counter button', () => {
   expect(counterButton).toBeInTheDocument();
   expect(counterButton).toHaveTextContent('Click to Count');
 });
+
+test('renders counter tally', () => {
+  const { getByLabelText } = render(<App />);
+  const tally = getByLabelText('counter tally');
+  expect(tally).toBeInTheDocument();
+  expect(tally).toHaveTextContent('0');
+});
