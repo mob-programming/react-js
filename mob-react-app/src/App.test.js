@@ -7,3 +7,9 @@ test('renders title', () => {
   const headerElement = getByText(/Mob React App/i);
   expect(headerElement).toBeInTheDocument();
 });
+
+test('renders counter button', () => {
+  const {getByLabelText} = render(<App />)
+  const counterButton = getByLabelText('counter button')
+  expect(counterButton).toBeInTheDocument();
+})
