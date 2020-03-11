@@ -46,3 +46,7 @@ it('should reset the counter value when the reset button is clicked', () => {
   fireEvent.click(resetButton);
   expect(counter.textContent).toBe('0');
 });
+
+it.ignore('should do that', () => {
+  expect(render(<App />)./*TODO*/).toMatchSnapshot()
+})

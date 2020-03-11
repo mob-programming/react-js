@@ -11,8 +11,8 @@ function App() {
         Mob React App
       </header>
       <span data-testid='counter'>{count}</span>
-      <button onClick={() => { setCount(count + 1) }}>Increment</button>
-      <button onClick={() => { setCount(0) }}>Reset</button>
+      <button className='counter' onClick={() => { setCount(count + 1) }}>Increment</button>
+      <button className='reset' onClick={() => { setCount(0) }}>Reset</button>
     </div>
   );
 }
