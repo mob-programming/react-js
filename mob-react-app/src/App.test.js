@@ -23,7 +23,9 @@ it('should render the increment button', () => {
 it('should increment counter value by one on click', () => {
   const { getByText, getByTestId } = render(<App />);
   const buttonElement = getByText('Increment');
-  fireEvent.click(buttonElement);
   const counter = getByTestId('counter');
+  fireEvent.click(buttonElement);
   expect(counter.textContent).toBe('1');
+  fireEvent.click(buttonElement);
+  expect(counter.textContent).toBe('2');
 });
