@@ -12,6 +12,7 @@ function App() {
       </header>
       <span data-testid='counter'>{count}</span>
       <button onClick={() => { setCount(count + 1) }}>Increment</button>
+      <button onClick={() => { setCount(0) }}>Reset</button>
     </div>
   );
 }

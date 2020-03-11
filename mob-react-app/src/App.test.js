@@ -29,3 +29,20 @@ it('should increment counter value by one on click', () => {
   fireEvent.click(buttonElement);
   expect(counter.textContent).toBe('2');
 });
+
+it('should render the reset button', () => {
+  const { getByText } = render(<App />);
+  const buttonElement = getByText('Reset');
+  expect(buttonElement).toBeInTheDocument();
+});
+
+it('should reset the counter value when the reset button is clicked', () => {
+  const { getByText, getByTestId } = render(<App />);
+  const incrementButton = getByText('Increment');
+  const resetButton = getByText('Reset');
+  const counter = getByTestId('counter');
+  fireEvent.click(incrementButton);
+  expect(counter.textContent).toBe('1');
+  fireEvent.click(resetButton);
+  expect(counter.textContent).toBe('0');
+});
