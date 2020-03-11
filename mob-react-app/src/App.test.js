@@ -8,3 +8,14 @@ it('should render the header', () => {
   expect(headerElement).toBeInTheDocument(); // See Jest API
 });
 
+it('should show initial count as zero', () => {
+  const { getByTestId } = render(<App />)
+  const counter = getByTestId('counter');
+  expect(counter.textContent).toBe('0');
+});
+
+it('should render the increment button', () => {
+  const { getByText } = render(<App />);
+  const buttonElement = getByText('Increment');
+  expect(buttonElement).toBeInTheDocument();
+});

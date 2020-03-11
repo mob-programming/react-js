@@ -6,8 +6,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        {/* TODO */}
+        Mob React App
       </header>
+      <span data-testid='counter'>0</span>
+      <button>Increment</button>
     </div>
   );
 }
