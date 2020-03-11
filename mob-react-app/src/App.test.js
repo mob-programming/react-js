@@ -1,5 +1,5 @@
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import App from './App';
 
 it('should render the header', () => {
@@ -18,4 +18,12 @@ it('should render the increment button', () => {
   const { getByText } = render(<App />);
   const buttonElement = getByText('Increment');
   expect(buttonElement).toBeInTheDocument();
+});
+
+it('should increment counter value by one on click', () => {
+  const { getByText, getByTestId } = render(<App />);
+  const buttonElement = getByText('Increment');
+  fireEvent.click(buttonElement);
+  const counter = getByTestId('counter');
+  expect(counter.textContent).toBe('1');
 });
