@@ -1,12 +1,17 @@
-# March Mob Programming Workshop Challenge
+# May Mob Programming Workshop Challenge
 
-Using React, create a click counter with a button and display of click tally.
+Using React, add to the existing app, a [Rot13](https://en.wikipedia.org/wiki/ROT13) encoder with an input text area, a submit button, and a display which shows the encoded value of the text.
 
-- When the button is clicked, the counter tally increments by one
+- When the submit button is clicked, encoded text is displayed in the display area.
 
-If that's too easy, add a reset button.
+If that's too easy, add a clear button.
 
-- When the reset button is clicked, the counter tally resets to zero
+- When the clear button is clicked, the display area is cleared.
+
+If that's too easy, add a Rot13 decoder, which will take Rot13 input, and output decoded text in the display area.
+
+If that's too easy, implement a ROT_n_ decoder, which will allow the user to specify the rotation length.
+
 
 ## Methodology
 Use TDD with Jest and React-testing-library.
