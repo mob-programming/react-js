@@ -45,8 +45,26 @@ it('should reset the counter value when the reset button is clicked', () => {
   expect(counter.textContent).toBe('1');
   fireEvent.click(resetButton);
   expect(counter.textContent).toBe('0');
+  
 });
 
-it.ignore('should do that', () => {
-  expect(render(<App />)./*TODO*/).toMatchSnapshot()
-})
+it('Should contain decoder input', () => {
+  const { getByTestId } = render(<App />);
+  const decoderInput = getByTestId('decoderInput');
+  expect(decoderInput).toBeInTheDocument();
+});
+
+it('should contain a decoder output area', () => {
+  const { getByTestId } = render(<App />);
+  const decoderOutput = getByTestId('decoderOutput');
+  expect(decoderOutput).toBeInTheDocument();
+});
+
+it('should mirror input value', () => {
+  const { getByTestId } = render(<App />);
+  const decoderInput = getByTestId('decoderInput');
+  fireEvent.change(decoderInput, "hello");
+  //decoderInput.  .simulate('change', {target: {value: 'hello'}});
+  const decoderOutput = getByTestId('decoderOutput');
+  expect(decoderOutput.textContent).toBe('hello');
+});
